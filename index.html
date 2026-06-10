@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Для тебе 🌸</title>
+  <link rel="stylesheet" href="enter.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="petals" id="petals"></div>
+
+  <div class="container">
+    <div class="card">
+      <div class="flower">🌸</div>
+      <h1>Це для тебе</h1>
+      <p class="subtitle">Дуже дуже важкий тест для Софійки</p>
+
+      <div class="questions">
+
+        <div class="question-block">
+          <label>Яка сьогодні дата? (тільки число)</label>
+          <input type="text" id="q1" placeholder="введи відповідь" autocomplete="off" />
+          <span class="check" id="c1"></span>
+        </div>
+
+        <div class="question-block">
+          <label>Скільки тобі сьогодні років?</label>
+          <input type="text" id="q2" placeholder="введи відповідь" autocomplete="off" />
+          <span class="check" id="c2"></span>
+        </div>
+
+        <div class="question-block">
+          <label>Скільки місяців ми разом?</label>
+          <input type="text" id="q3" placeholder="введи відповідь" autocomplete="off" />
+          <span class="check" id="c3"></span>
+        </div>
+
+      </div>
+
+      <button class="btn" id="btn" disabled>відкрити сюрприз 🎁</button>
+      <p class="error" id="error"></p>
+    </div>
+  </div>
+
+  <script>
+    // Правильні відповіді
+    const answers = ['26', '17', '9'];
+    const ids = ['q1', 'q2', 'q3'];
+    const checks = ['c1', 'c2', 'c3'];
+
+    function normalize(str) {
+      return str.trim().toLowerCase();
+    }
+
+    function updateChecks() {
+      let allCorrect = true;
+      ids.forEach((id, i) => {
+        const val = normalize(document.getElementById(id).value);
+        const correct = normalize(answers[i]);
+        const check = document.getElementById(checks[i]);
+        if (val === '') {
+          check.textContent = '';
+          allCorrect = false;
+        } else if (val === correct) {
+          check.textContent = '✓';
+          check.className = 'check ok';
+        } else {
+          check.textContent = '✗';
+          check.className = 'check fail';
+          allCorrect = false;
+        }
+      });
+      document.getElementById('btn').disabled = !allCorrect;
+    }
+
+    ids.forEach(id => {
+      document.getElementById(id).addEventListener('input', updateChecks);
+    });
+
+    document.getElementById('btn').addEventListener('click', () => {
+      window.location.href = 'https://kirigamiiii.github.io/hbs/birthday.html';
+    });
+
+    // Petals
+    const petalEl = document.getElementById('petals');
+    const symbols = ['🌸','🌷','🌺','💮'];
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDuration = (8 + Math.random() * 10) + 's';
+      p.style.animationDelay = (Math.random() * 12) + 's';
+      p.style.fontSize = (13 + Math.random() * 13) + 'px';
+      petalEl.appendChild(p);
+    }
+  </script>
+
+</body>
+</html>

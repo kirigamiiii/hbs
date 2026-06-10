@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>happy birthday</title>
+  <link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Floating petals background -->
+  <div class="petals" id="petals"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="flower-anim">
+      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazk0a2RoeWdkYzE1czJrOG9vMXBnZjNpNmd0aGhjajh3enE3dWp1bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jeD6F4bbAASCFAtr5i/giphy.gif" alt="flowers" class="hero-gif" />
+    </div>
+    <p class="hero-title">З Днем Народження,</p>
+    <p class="hero-name">Сонька!!!!</p>
+    <p class="hero-sub">сьогодні найкращий день моєї дівчинки </p>
+    <span class="scroll-hint">↓ гортай нижче ↓</span>
+  </section>
+
+  <div class="divider">· · · 💋 · · ·</div>
+
+  <!-- PHOTO CAROUSEL -->
+  <section class="carousel-section">
+    <p class="section-label">Моя гарнюнька </p>
+
+    <div class="carousel-wrap">
+
+      <div class="carousel-frame" id="carousel">
+
+
+
+        <div class="slide active">
+          <img src="hbph1.jpg" alt="photo 1" />
+            
+        </div>
+
+        <div class="slide">
+          <img src="hbph2.jpg" alt="photo 2" />
+            
+          
+        </div>
+
+        <div class="slide">
+          <img src="hbph67.jpg" alt="photo 3" />
+           
+          
+        </div>
+
+        <div class="slide">
+          <img src="hbph4.jpg" alt="photo 4" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          
+        </div>
+
+      </div><!-- /carousel-frame -->
+
+      <button class="arrow prev" id="prev" aria-label="попереднє фото">&#8592;</button>
+      <button class="arrow next" id="next" aria-label="наступне фото">&#8594;</button>
+
+    </div><!-- /carousel-wrap -->
+
+    <div class="dots" id="dots"></div>
+
+  </section>
+
+  <div class="divider">· · · 🥳 · · ·</div>
+
+
+<section class="moments-section">
+  <p class="moments-title">Люблю тебе, коли...</p>
+
+  <div class="moment">
+    <div class="moment-text">
+      <p>ми валяємось в мене вдома в найкращих обіймах </p>
+    </div>
+    <div class="moment-photo">
+      <img src="m1.jpg" alt="момент 1" />
+    </div>
+  </div>
+
+  <div class="moment reverse">
+    <div class="moment-text">
+      <p>я чую твій сміх,найкращий з усіх </p>
+    </div>
+    <div class="moment-photo">
+      <img src="m2.jpg" alt="момент 2" />
+    </div>
+  </div>
+
+  <div class="moment">
+    <div class="moment-text">
+      <p>ми гуляємо навіть в -20,з тобою гулянки найкращі </p>
+    </div>
+    <div class="moment-photo">
+      <img src="m3.jpg" alt="момент 3" />
+    </div>
+  </div>
+
+  <div class="moment reverse">
+    <div class="moment-text">
+      <p>ти дивишся на мене cвоїми найкращими очима</p>
+    </div>
+    <div class="moment-photo">
+      <img src="m4.jpg" alt="момент 4" />
+    </div>
+  </div>
+  <p class="moments-end">А взагалі люблю тебе завжди ❣️</p>
+
+</section>
+
+<div class="divider">· · · 🎉 · · ·</div>
+
+<section class="videos-section">
+  <p class="videos-title">Ліпсінги моєї красотки </p>
+  <div class="videos-grid">
+
+    <div class="video-item">
+      <video src="vid1.MOV"  controls controlslist="nofullscreen"  controls preload="metadata"></video>
+    </div>
+
+    <div class="video-item">
+      <video src="vid2.MOV"   controls controlslist="nofullscreen" controls preload="metadata"></video>
+    </div>
+
+    <div class="video-item">
+      <video src="vid3.MOV"   controls controlslist="nofullscreen" controls preload="metadata"></video>
+    </div>
+
+  </div>
+</section>
+<div class="divider">· · · 🌸 · · ·</div>
+  
+  <section class="message-section">
+    <blockquote>
+      Сьогодні твій день,і я дуже радий,
+      що проведу його з тобою.
+      Бажаю щоб ти була завжди усміхнена,
+      бо я обожнюю твою усмішку
+    </blockquote>
+    <div class="sign">
+      З усією любов'ю,
+      <strong> твій мальчік 💕</strong>
+    </div>
+  </section>
+ 
+
+  <footer>
+    made with love &nbsp;·&nbsp; тільки для Соньки &nbsp;·&nbsp; 🌸
+  </footer>
+
+  <script>
+    /* ── Petals ── */
+    const petalEl = document.getElementById('petals');
+    const symbols = ['💋','❤️','🥳','🎉'];
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDuration = (8 + Math.random() * 10) + 's';
+      p.style.animationDelay    = (Math.random() * 12) + 's';
+      p.style.fontSize          = (13 + Math.random() * 13) + 'px';
+      petalEl.appendChild(p);
+    }
+
+    /* ── Carousel ── */
+    const slides   = Array.from(document.querySelectorAll('.slide'));
+    const dotsWrap = document.getElementById('dots');
+    let current = 0;
+    let timer;
+
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'фото ' + (i + 1));
+      d.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(d);
+    });
+
+    function go(idx) {
+      slides[current].classList.remove('active');
+      dotsWrap.children[current].classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dotsWrap.children[current].classList.add('active');
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => go(current + 1), 4000);
+    }
+
+    document.getElementById('prev').addEventListener('click', () => go(current - 1));
+    document.getElementById('next').addEventListener('click', () => go(current + 1));
+
+    resetTimer();
+  </script>
+
+</body>
+</html>
